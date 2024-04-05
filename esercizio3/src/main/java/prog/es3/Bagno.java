@@ -26,9 +26,4 @@ public class Bagno {
         System.out.println(name + " e' uscito dal bagno");        
     }
 
-    public boolean isDisponibile() {
-        return disponibile;
-    }
-
-
 }
