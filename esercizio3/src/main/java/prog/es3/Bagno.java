@@ -9,6 +9,7 @@ public class Bagno {
         try {
             while(!disponibile){
                 wait();
+                System.out.println(name +" è in attesa di entrare");
             }
         }
         catch (InterruptedException e) {
