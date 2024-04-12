@@ -9,13 +9,8 @@ public class ThreadB extends Thread{
         this.genere = genere;
         this.b = b;
     }
-    
 
-    public String getGenere() {
-        return genere;
-    }
-
-
+    @Override
     public void run(){
         String name = Thread.currentThread().getName();
         try{
@@ -28,5 +23,9 @@ public class ThreadB extends Thread{
         catch(InterruptedException i){
             i.printStackTrace();
         }
+    }
+
+    public String getGenere() {
+        return genere;
     }
 }

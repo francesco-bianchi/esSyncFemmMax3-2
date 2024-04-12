@@ -3,10 +3,11 @@ package prog.es3;
 
 public class Bagno {
     private boolean disponibile=true;
-    private int contaD=1;
+    private int contaD=0;
 
     public synchronized void entra(ThreadB t){
         String name = Thread.currentThread().getName();
+        if(t.getGenere().equals("f")) contaD++;
         try {
             while(!disponibile || contaD>0 && t.getGenere().equals("m")){
                 wait();
@@ -17,7 +18,7 @@ public class Bagno {
             e.printStackTrace();
         }
         disponibile=false;
-        contaD--;
+        if(t.getGenere().equals("f")) contaD--;
         System.out.println(name + " e' entrato in bagno");
     }
 
