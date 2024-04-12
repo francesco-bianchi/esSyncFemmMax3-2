@@ -2,16 +2,24 @@ package prog.es3;
 
 public class ThreadB extends Thread{
     private Bagno b;
+    private String genere;
 
-    public ThreadB(Bagno b, String name){
+    public ThreadB(Bagno b, String name, String genere){
         super(name);
+        this.genere = genere;
         this.b = b;
     }
+    
+
+    public String getGenere() {
+        return genere;
+    }
+
 
     public void run(){
         String name = Thread.currentThread().getName();
         try{
-            b.entra();
+            b.entra(this);
             int t = 2000 + (int) (Math.random()*3000);
             System.out.println(name + " occupa il bagno per: " + (t/1000) + " secondi");
             Thread.sleep(t);
